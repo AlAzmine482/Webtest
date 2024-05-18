@@ -1,0 +1,11 @@
+manufacturer_id,manufacturer_name,manufacturer_country,car_id,car_name,car_drivetrain,car_year
+2,Toyota,Japan,1,Camry,AWD,2022
+2,Toyota,Japan,2,Corolla,FWD,2023
+3,Honda,Japan,3,Accord,AWD,2022
+3,Honda,Japan,4,Civic,FWD,2023
+4,Ford,USA,5,Fusion,AWD,2022
+4,Ford,USA,6,Fiesta,FWD,2023
+5,BMW,Germany,7,3 Series,RWD,2022
+5,BMW,Germany,8,5 Series,AWD,2023
+1,Audi,Germany,9,A4,AWD,2022
+1,Audi,Germany,10,Q5,FWD,2023
