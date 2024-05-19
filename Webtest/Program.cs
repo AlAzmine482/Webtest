@@ -96,7 +96,7 @@ app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseRouting();
+
 app.MapControllers();
 
 app.Run();

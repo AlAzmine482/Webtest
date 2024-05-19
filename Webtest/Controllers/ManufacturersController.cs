@@ -44,7 +44,7 @@ namespace Webtest.Controllers
         }
 
 
-
+        [Authorize]
         [HttpGet("ManufacturerCars/{id}")]
         
         public async Task<ActionResult<IEnumerable<Car>>> GetCarsbyCountry(int id)
