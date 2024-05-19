@@ -83,9 +83,9 @@ namespace Webtest.Models
 
             modelBuilder.Entity<Car>(entity =>
             {
-                entity.HasKey(e => e.CarId).HasName("PK_car");
+                entity.HasKey(e => e.car_id).HasName("PK_car");
 
-                entity.Property(e => e.CarId).ValueGeneratedOnAdd();
+                entity.Property(e => e.car_id).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.Manufacturer)
                     .WithMany(p => p.Cars)
@@ -96,9 +96,9 @@ namespace Webtest.Models
 
             modelBuilder.Entity<Manufacturer>(entity =>
             {
-                entity.HasKey(e => e.ManufacturerId).HasName("PK_manufacturer");
+                entity.HasKey(e => e.manufacturer_id).HasName("PK_manufacturer");
 
-                entity.Property(e => e.ManufacturerId).ValueGeneratedOnAdd();
+                entity.Property(e => e.manufacturer_id).ValueGeneratedOnAdd();
             });
 
             OnModelCreatingPartial(modelBuilder);

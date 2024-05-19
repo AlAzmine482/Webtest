@@ -11,19 +11,19 @@ public partial class Manufacturer
 {
     [Key]
     [Column("manufacturer_id")]
-    public int ManufacturerId { get; set; }
+    public int manufacturer_id { get; set; }
 
    
     [StringLength(50)]
     [Unicode(false)]
     [Column("manufacturer_name")]
-    public string ManufacturerName { get; set; } = null!;
+    public string manufacturer_name { get; set; } = null!;
 
     
     [StringLength(50)]
     [Unicode(false)]
     [Column("manufacturer_country")]
-    public string ManufacturerCountry { get; set; } = null!;
+    public string manufacturer_country { get; set; } = null!;
 
     [InverseProperty("Manufacturer")]
     public virtual ICollection<Car> Cars { get; set; } = new List<Car>();

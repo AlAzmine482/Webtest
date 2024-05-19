@@ -47,7 +47,7 @@ namespace Webtest.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCar(int id, Car car)
         {
-            if (id != car.CarId)
+            if (id != car.car_id)
             {
                 return BadRequest();
             }
@@ -81,7 +81,7 @@ namespace Webtest.Controllers
             context.Cars.Add(car);
             await context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCar", new { id = car.CarId }, car);
+            return CreatedAtAction("GetCar", new { id = car.car_id }, car);
         }
 
         // DELETE: api/Cars/5
@@ -102,7 +102,7 @@ namespace Webtest.Controllers
 
         private bool CarExists(int id)
         {
-            return context.Cars.Any(e => e.CarId == id);
+            return context.Cars.Any(e => e.car_id == id);
         }
     }
 }

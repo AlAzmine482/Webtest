@@ -49,7 +49,7 @@ namespace Webtest.Controllers
         
         public async Task<ActionResult<IEnumerable<Car>>> GetCarsbyCountry(int id)
         {
-            return await _context.Cars.Where(c => c.ManufacturerId == id).ToListAsync();
+            return await _context.Cars.Where(c => c.manufacturer_id == id).ToListAsync();
         }
 
         // PUT: api/Manufacturers/5
@@ -57,7 +57,7 @@ namespace Webtest.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutManufacturer(int id, Manufacturer manufacturer)
         {
-            if (id != manufacturer.ManufacturerId)
+            if (id != manufacturer.manufacturer_id)
             {
                 return BadRequest();
             }
@@ -94,7 +94,7 @@ namespace Webtest.Controllers
             _context.Manufacturers.Add(manufacturer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetManufacturer", new { id = manufacturer.ManufacturerId }, manufacturer);
+            return CreatedAtAction("GetManufacturer", new { id = manufacturer.manufacturer_id }, manufacturer);
         }
 
         // DELETE: api/Manufacturers/5
@@ -134,7 +134,7 @@ namespace Webtest.Controllers
 
         private bool ManufacturerExists(int id)
         {
-            return _context.Manufacturers.Any(e => e.ManufacturerId == id);
+            return _context.Manufacturers.Any(e => e.manufacturer_id == id);
         }
     }
 }

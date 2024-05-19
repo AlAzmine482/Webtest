@@ -11,24 +11,24 @@ public partial class Car
 {
     [Key]
     [Column("car_id")]
-    public int CarId { get; set; }
+    public int car_id { get; set; }
 
     
     [StringLength(50)]
     [Unicode(false)]
     [Column("car_name")]
-    public string CarName { get; set; } 
+    public string car_name { get; set; } 
 
     [Column("car_drivetrain", TypeName = "text")]
-    public string CarDrivetrain { get; set; } 
+    public string car_drivetrain { get; set; } 
 
     [Column("car_year")]
-    public int CarYear { get; set; }
+    public int car_year { get; set; }
 
     [Column("manufacturer_id")]
-    public int ManufacturerId { get; set; }
+    public int manufacturer_id { get; set; }
 
-    [ForeignKey("ManufacturerId")]
+    [ForeignKey("manufacturer_id")]
     [InverseProperty("Cars")]
     public virtual Manufacturer Manufacturer { get; set; } = null!;
 }

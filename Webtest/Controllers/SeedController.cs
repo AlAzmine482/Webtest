@@ -125,7 +125,7 @@ namespace Webtest.Controllers
         public async Task<ActionResult<Car>> SeedCar()
         {
             Dictionary<string, Manufacturer> manufacturer = await db.Manufacturers
-                .ToDictionaryAsync(x => x.ManufacturerName, StringComparer.OrdinalIgnoreCase);
+                .ToDictionaryAsync(x => x.manufacturer_name, StringComparer.OrdinalIgnoreCase);
 
             CsvConfiguration config = new(CultureInfo.InvariantCulture)
             {
@@ -156,10 +156,10 @@ namespace Webtest.Controllers
 
                     Car car = new()
                     {
-                        CarName = record.car_name,
-                        CarYear = record.car_year,
-                        CarDrivetrain = record.car_drivetrain,
-                        ManufacturerId = value.ManufacturerId, // Use value from TryGetValue
+                        car_name = record.car_name,
+                        car_year = record.car_year,
+                        car_drivetrain = record.car_drivetrain,
+                        manufacturer_id = value.manufacturer_id, // Use value from TryGetValue
                     };
 
                     db.Cars.Add(car);
@@ -181,7 +181,7 @@ namespace Webtest.Controllers
             //await SeedCar();
 
             Dictionary<string, Manufacturer> manufacturersbyname = await db.Manufacturers
-                .ToDictionaryAsync(c => c.ManufacturerName, StringComparer.OrdinalIgnoreCase);
+                .ToDictionaryAsync(c => c.manufacturer_name, StringComparer.OrdinalIgnoreCase);
 
             //               int existingCarCount = await db.Cars.CountAsync();
             //              logger.LogInformation($"Existing Cars: {existingCarCount}");
@@ -205,8 +205,8 @@ namespace Webtest.Controllers
                 }
                     Manufacturer manufacturer = new()
                     {
-                        ManufacturerName = record.manufacturer_name,
-                        ManufacturerCountry = record.manufacturer_country
+                        manufacturer_name = record.manufacturer_name,
+                        manufacturer_country = record.manufacturer_country
                         
 
                     };
