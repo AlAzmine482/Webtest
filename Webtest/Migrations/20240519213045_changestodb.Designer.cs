@@ -7,14 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Webtest.Models;
 
-
 #nullable disable
 
 namespace Webtest.Migrations
 {
     [DbContext(typeof(CarmanufacturerContext))]
-    [Migration("20240517105308_InitialIdentityMigration")]
-    partial class InitialIdentityMigration
+    [Migration("20240519213045_changestodb")]
+    partial class changestodb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -164,29 +163,29 @@ namespace Webtest.Migrations
                     b.Property<int>("CarId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("car_id");
+                        .HasColumnName("CarId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarId"));
-
-                    b.Property<string>("CarDrivetrain")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("car_drivetrain");
 
                     b.Property<string>("CarName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
-                        .HasColumnName("car_name");
+                        .HasColumnName("CarName");
 
                     b.Property<int>("CarYear")
                         .HasColumnType("int")
-                        .HasColumnName("car_year");
+                        .HasColumnName("CarYear");
 
                     b.Property<int>("ManufacturerId")
                         .HasColumnType("int")
-                        .HasColumnName("manufacturer_id");
+                        .HasColumnName("ManufacturerId");
+
+                    b.Property<string>("cardrivetrain")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("car_drivetrain");
 
                     b.HasKey("CarId")
                         .HasName("PK_car");
@@ -198,28 +197,28 @@ namespace Webtest.Migrations
 
             modelBuilder.Entity("Webtest.Models.Manufacturer", b =>
                 {
-                    b.Property<int>("ManufacturerId")
+                    b.Property<int>("manufacturer_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("manufacturer_id");
+                        .HasColumnName("ManufacturerId");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ManufacturerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("manufacturer_id"));
 
                     b.Property<string>("ManufacturerCountry")
                         .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
-                        .HasColumnName("manufacturer_country");
+                        .HasColumnName("ManufacturerCountry");
 
                     b.Property<string>("ManufacturerName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
-                        .HasColumnName("manufacturer_name");
+                        .HasColumnName("ManufacturerName");
 
-                    b.HasKey("ManufacturerId")
+                    b.HasKey("manufacturer_id")
                         .HasName("PK_manufacturer");
 
                     b.ToTable("manufacturer");

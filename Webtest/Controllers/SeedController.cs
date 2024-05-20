@@ -125,8 +125,8 @@ namespace Webtest.Controllers
         public async Task<ActionResult<Car>> SeedCar()
         {
             Dictionary<string, Manufacturer> manufacturer = await db.Manufacturers
-                .ToDictionaryAsync(x => x.ManufacturerName, StringComparer.OrdinalIgnoreCase);
-
+                .ToDictionaryAsync(x => x.ManufacturerName);
+            //, StringComparer.OrdinalIgnoreCase
             CsvConfiguration config = new(CultureInfo.InvariantCulture)
             {
                 HasHeaderRecord = true,
@@ -158,7 +158,7 @@ namespace Webtest.Controllers
                     {
                         CarName = record.car_name,
                         CarYear = record.car_year,
-                        CarDrivetrain = record.car_drivetrain,
+                        cardrivetrain = record.car_drivetrain,
                         ManufacturerId = value.ManufacturerId, // Use value from TryGetValue
                     };
 
@@ -171,9 +171,10 @@ namespace Webtest.Controllers
 
             return new JsonResult(carCount);
         }
-    
 
-    [HttpPost("Manufacturer")]
+
+
+        [HttpPost("Manufacturer")]
         public async Task<ActionResult<int>> SeedManufacturer()
         {
 

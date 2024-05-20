@@ -159,26 +159,30 @@ namespace Webtest.Migrations
                 {
                     b.Property<int>("CarId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CarId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarId"));
-
-                    b.Property<string>("CarDrivetrain")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("car_drivetrain");
 
                     b.Property<string>("CarName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("CarName");
 
                     b.Property<int>("CarYear")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CarYear");
 
                     b.Property<int>("ManufacturerId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ManufacturerId");
+
+                    b.Property<string>("cardrivetrain")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("car_drivetrain");
 
                     b.HasKey("CarId")
                         .HasName("PK_car");
@@ -190,25 +194,28 @@ namespace Webtest.Migrations
 
             modelBuilder.Entity("Webtest.Models.Manufacturer", b =>
                 {
-                    b.Property<int>("ManufacturerId")
+                    b.Property<int>("manufacturer_id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ManufacturerId");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ManufacturerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("manufacturer_id"));
 
                     b.Property<string>("ManufacturerCountry")
                         .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("ManufacturerCountry");
 
                     b.Property<string>("ManufacturerName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("ManufacturerName");
 
-                    b.HasKey("ManufacturerId")
+                    b.HasKey("manufacturer_id")
                         .HasName("PK_manufacturer");
 
                     b.ToTable("manufacturer");

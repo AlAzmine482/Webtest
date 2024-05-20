@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Webtest.Migrations
 {
     /// <inheritdoc />
-    public partial class cars : Migration
+    public partial class changestodb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -54,14 +54,14 @@ namespace Webtest.Migrations
                 name: "manufacturer",
                 columns: table => new
                 {
-                    manufacturer_id = table.Column<int>(type: "int", nullable: false)
+                    ManufacturerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    manufacturer_name = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    manufacturer_country = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false)
+                    ManufacturerName = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    ManufacturerCountry = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_manufacturer", x => x.manufacturer_id);
+                    table.PrimaryKey("PK_manufacturer", x => x.ManufacturerId);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,21 +174,21 @@ namespace Webtest.Migrations
                 name: "car",
                 columns: table => new
                 {
-                    car_id = table.Column<int>(type: "int", nullable: false)
+                    CarId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    car_name = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    CarName = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
                     car_drivetrain = table.Column<string>(type: "text", nullable: false),
-                    car_year = table.Column<int>(type: "int", nullable: false),
-                    manufacturer_id = table.Column<int>(type: "int", nullable: false)
+                    CarYear = table.Column<int>(type: "int", nullable: false),
+                    ManufacturerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_car", x => x.car_id);
+                    table.PrimaryKey("PK_car", x => x.CarId);
                     table.ForeignKey(
                         name: "FK_car_manufacturer",
-                        column: x => x.manufacturer_id,
+                        column: x => x.ManufacturerId,
                         principalTable: "manufacturer",
-                        principalColumn: "manufacturer_id");
+                        principalColumn: "ManufacturerId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -231,9 +231,9 @@ namespace Webtest.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_car_manufacturer_id",
+                name: "IX_car_ManufacturerId",
                 table: "car",
-                column: "manufacturer_id");
+                column: "ManufacturerId");
         }
 
         /// <inheritdoc />

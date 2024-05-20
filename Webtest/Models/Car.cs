@@ -10,22 +10,22 @@ namespace Webtest.Models;
 public partial class Car
 {
     [Key]
-    [Column("car_id")]
+    [Column("CarId")]
     public int CarId { get; set; }
 
     
     [StringLength(50)]
     [Unicode(false)]
-    [Column("car_name")]
+    [Column("CarName")]
     public string CarName { get; set; } 
 
     [Column("car_drivetrain", TypeName = "text")]
-    public string CarDrivetrain { get; set; } 
+    public string cardrivetrain { get; set; } 
 
-    [Column("car_year")]
+    [Column("CarYear")]
     public int CarYear { get; set; }
 
-    [Column("manufacturer_id")]
+    [Column("ManufacturerId")]
     public int ManufacturerId { get; set; }
 
     [ForeignKey("ManufacturerId")]

@@ -10,19 +10,19 @@ namespace Webtest.Models;
 public partial class Manufacturer
 {
     [Key]
-    [Column("manufacturer_id")]
+    [Column("ManufacturerId")]
     public int ManufacturerId { get; set; }
 
    
     [StringLength(50)]
     [Unicode(false)]
-    [Column("manufacturer_name")]
+    [Column("ManufacturerName")]
     public string ManufacturerName { get; set; } = null!;
 
     
     [StringLength(50)]
     [Unicode(false)]
-    [Column("manufacturer_country")]
+    [Column("ManufacturerCountry")]
     public string ManufacturerCountry { get; set; } = null!;
 
     [InverseProperty("Manufacturer")]
